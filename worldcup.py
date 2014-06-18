@@ -67,7 +67,7 @@ def prettify(match):
         match_status = "Played %s. Winner: %s" % (humanize.naturaltime(diff),
                                                   match['winner'])
     else:
-        match_status = "Will be played after %s" % humanize.naturaltime(diff)
+        match_status = "Will be played %s" % humanize.naturaltime(diff)
 
     if status == NOW:
         match_percentage = int(seconds / 60 / 90 * 100)
