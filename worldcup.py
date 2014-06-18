@@ -2,11 +2,11 @@ import sys
 import json
 import urllib
 import datetime
-from dateutil.tz import tzlocal
 
 import colorama
 import humanize
 import dateutil.parser
+import dateutil.tz
 
 
 FUTURE = "future"
@@ -39,7 +39,7 @@ def prettify(match):
     """
     Prettifies given match object
     """
-    diff = (datetime.datetime.now(tz=tzlocal()) -
+    diff = (datetime.datetime.now(tz=dateutil.tz.tzlocal()) -
             dateutil.parser.parse(match['datetime']))
 
     seconds = diff.total_seconds()
