@@ -1,4 +1,3 @@
-worldcup
-========
+World Cup results for hackers. Uses Soccer For Good API.
 
-World Cup results for hackers
+(http://softwareforgood.com/soccer-good/)
