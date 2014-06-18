@@ -62,10 +62,14 @@ def prettify(match):
 
     if status == NOW:
         minute = int(seconds / 60)
-        match_status = "Being played: %s. minute" % minute
+        match_status = "Being played now: %s minutes gone" % minute
     elif status == PAST:
-        match_status = "Played %s. Winner: %s" % (humanize.naturaltime(diff),
-                                                  match['winner'])
+        if match['winner'] == 'Draw':
+            result = 'Draw'
+        else:
+            result = "%s won" % (match['winner'])
+        match_status = "Played %s. %s" % (humanize.naturaltime(diff),
+                                                  result)
     else:
         match_status = "Will be played %s" % humanize.naturaltime(diff)
 
