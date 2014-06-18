@@ -61,7 +61,7 @@ def prettify(match):
     away = match['away_team']
 
     if status == NOW:
-        minute = int(diff.total_seconds() / 60)
+        minute = int(seconds / 60)
         match_status = "Being played: %s. minute" % minute
     elif status == PAST:
         match_status = "Played %s. Winner: %s" % (humanize.naturaltime(diff),
