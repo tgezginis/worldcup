@@ -2,8 +2,8 @@ import sys
 import json
 import urllib
 import datetime
+from dateutil.tz import tzlocal
 
-import pytz
 import colorama
 import humanize
 import dateutil.parser
@@ -37,9 +37,9 @@ def progress_bar(percentage, separator="o", character="-"):
 
 def prettify(match):
     """
-    Prints a match object
+    Prettifies given match object
     """
-    diff = (datetime.datetime.now(pytz.timezone("UTC")) -
+    diff = (datetime.datetime.now(tz=tzlocal()) -
             dateutil.parser.parse(match['datetime']))
 
     seconds = diff.total_seconds()
