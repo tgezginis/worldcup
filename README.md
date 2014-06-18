@@ -12,17 +12,29 @@ Just use the pip.
 
 ### Usage
 
-Run the `worldcup` command.
+If you run the `worldcup` directly, fetches and prints all matches.
+You can pass `today` or `current` options to filter matches.
 
-    $ worldcup
-    ....
-
-Also you can get current or today's matches:
 
     $ worldcup today
-    ....
 
-    $ worldcup current
+     Brazil                         1 - 1                        Croatia
+    ------------------------o-------------------------------------------
+     ⚽  Being played: 34. minute
 
+
+     Mexico                         1 - 0                       Cameroon
+    --------------------------------------------------------------------
+     ⚽  Played 4 days ago. Winner: Mexico
+
+
+     Spain                          1 - 5                    Netherlands
+    --------------------------------------------------------------------
+     ⚽  Played 4 days ago. Winner: Netherlands
+
+
+     Chile                          3 - 1                      Australia
+    --------------------------------------------------------------------
+     ⚽  Played 4 days ago. Winner: Chile
 
 
