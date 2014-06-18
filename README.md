@@ -1,8 +1,11 @@
 World Cup results for hackers. Uses Soccer For Good API.
 
-(http://softwareforgood.com/soccer-good/)
+http://softwareforgood.com/soccer-good/
 
 ![worldcup.py](http://i.imgur.com/DTUomdM.png)
+
+Note: You can ignore the results on screenshot. I did it by manually :)
+
 
 ### Installing
 
