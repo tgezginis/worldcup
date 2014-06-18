@@ -118,8 +118,12 @@ def fetch(endpoint):
             yield match
 
 
-if __name__ == "__main__":
+def main():
     colorama.init()
     endpoint = ''.join(sys.argv[1:])
     for match in fetch(endpoint):
         print prettify(match)
+
+
+if __name__ == "__main__":
+    main()
