@@ -15,7 +15,7 @@ PAST = "past"
 SCREEN_WIDTH = 68
 
 
-def progress_bar(percentage, separator="o"):
+def progress_bar(percentage, separator="o", character="-"):
     """
     Creates a progress bar by given percentage value
     """
@@ -23,16 +23,16 @@ def progress_bar(percentage, separator="o"):
     empty = colorama.Fore.WHITE + colorama.Style.BRIGHT
 
     if percentage == 100:
-        return filled + "-" * SCREEN_WIDTH
+        return filled + character * SCREEN_WIDTH
 
     if percentage == 0:
-        return empty + "-" * SCREEN_WIDTH
+        return empty + character * SCREEN_WIDTH
 
     completed = int((SCREEN_WIDTH / 100.0) * percentage)
 
-    return (filled + ("-" * (completed - 1)) +
+    return (filled + (character * (completed - 1)) +
             separator +
-            empty + ("-" * (SCREEN_WIDTH - completed)))
+            empty + (character * (SCREEN_WIDTH - completed)))
 
 
 def prettify(match):
