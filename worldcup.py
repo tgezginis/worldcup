@@ -94,6 +94,30 @@ def prettify(match):
         colorama.Fore.WHITE + match_status
     )
 
+def prettify_group(group, order):
+    """
+    Prettifies given group object
+    """
+    played = group['wins'] + group['draws'] + group['losses']
+    points = group['wins']*3 + group['draws']
+
+    if order in (1, 2):
+        color = colorama.Style.BRIGHT + colorama.Fore.GREEN
+    else:
+        color = colorama.Style.NORMAL + colorama.Fore.WHITE
+
+    return color +"{}. {}\t{} {} {} {} {} {} {}".format(
+        order,
+        format(group['country']).ljust(30),
+        format(played).ljust(2),
+        format(group['wins']).ljust(2),
+        format(group['draws']).ljust(2),
+        format(group['losses']).ljust(2),
+        format(group['goals_for']).ljust(2),
+        format(group['goals_against']).ljust(2),
+        format(points).ljust(2)
+    )
+
 
 def is_valid(match):
     """
@@ -121,12 +145,33 @@ def fetch(endpoint):
         if is_valid(match):
             yield match
 
+def fetch_group_results():
+    """
+    Fetches group results
+    """
+    url = "http://worldcup.sfg.io/group_results"
+
+    data = urllib.urlopen(url)
+    groups = json.load(data)
+
+    for group in groups:
+        yield group
+
 
 def main():
     colorama.init()
     endpoint = ''.join(sys.argv[1:])
-    for match in fetch(endpoint):
-        print prettify(match)
+    if endpoint == "groups":
+        for i, group in enumerate(fetch_group_results()):
+            if i % 4 == 0:
+                order = 1
+                print colorama.Style.BRIGHT + "\nGroup %s" % chr(group["group_id"]-1 + ord('A')) + " " * 32 + " MP W  D  L  GF GO P"
+                print "-" * 60
+            print prettify_group(group, order)
+            order = order + 1
+    else:
+        for match in fetch(endpoint):
+            print prettify(match)
 
 
 if __name__ == "__main__":
