@@ -4,6 +4,8 @@ http://softwareforgood.com/soccer-good/
 
 ![worldcup.py](http://i.imgur.com/DTUomdM.png)
 
+![worldcup.py](http://imgur.com/LlElzYa.png)
+
 Note: You can ignore the results on screenshot. I did it by manually :)
 
 
